@@ -14,22 +14,114 @@ const initialForm = {
   message: '',
 }
 
+const EMAIL_REGEX =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+$/
+
+function isValidEmail(email) {
+  const value = email.trim()
+  if (!value || value.length > 180) return false
+  return EMAIL_REGEX.test(value)
+}
+
 export default function Contact() {
   const [form, setForm] = useState(initialForm)
-  const [submitted, setSubmitted] = useState(false)
+  const [fieldErrors, setFieldErrors] = useState({})
+  const [status, setStatus] = useState('idle')
+  const [error, setError] = useState('')
+
+  const validateForm = () => {
+    const nextErrors = {}
+
+    if (!form.name.trim()) nextErrors.name = 'Name is required.'
+    if (!form.email.trim()) {
+      nextErrors.email = 'Email is required.'
+    } else if (!isValidEmail(form.email)) {
+      nextErrors.email = 'Enter a valid email address (example: name@gmail.com).'
+    }
+    if (!form.subject.trim()) nextErrors.subject = 'Subject is required.'
+    if (!form.message.trim()) nextErrors.message = 'Message is required.'
+
+    setFieldErrors(nextErrors)
+    return Object.keys(nextErrors).length === 0
+  }
 
   const handleChange = (event) => {
     const { name, value } = event.target
     setForm((prev) => ({ ...prev, [name]: value }))
+    if (fieldErrors[name]) {
+      setFieldErrors((prev) => {
+        const next = { ...prev }
+        delete next[name]
+        return next
+      })
+    }
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    console.log('Contact form submitted:', form)
-    setSubmitted(true)
-    setForm(initialForm)
-    setTimeout(() => setSubmitted(false), 3500)
+  const handleEmailBlur = () => {
+    if (!form.email.trim()) {
+      setFieldErrors((prev) => ({ ...prev, email: 'Email is required.' }))
+      return
+    }
+    if (!isValidEmail(form.email)) {
+      setFieldErrors((prev) => ({
+        ...prev,
+        email: 'Enter a valid email address (example: name@gmail.com).',
+      }))
+      return
+    }
+    setFieldErrors((prev) => {
+      const next = { ...prev }
+      delete next.email
+      return next
+    })
   }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    setError('')
+
+    if (!validateForm()) {
+      setStatus('error')
+      setError('Please fix the highlighted fields.')
+      return
+    }
+
+    setStatus('loading')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim().toLowerCase(),
+          subject: form.subject.trim(),
+          message: form.message.trim(),
+        }),
+      })
+
+      const data = await response.json().catch(() => ({}))
+
+      if (!response.ok || !data.ok) {
+        throw new Error(data.error || 'Failed to send message.')
+      }
+
+      setStatus('success')
+      setForm(initialForm)
+      setFieldErrors({})
+      setTimeout(() => setStatus('idle'), 4000)
+    } catch (err) {
+      setStatus('error')
+      setError(err.message || 'Something went wrong.')
+    }
+  }
+
+  const inputClass = (hasError) =>
+    `mt-2 w-full rounded-2xl border bg-bg-elevated px-4 py-3 text-text placeholder:text-muted/50 disabled:opacity-60 ${
+      hasError
+        ? 'border-red-400/70 focus:border-red-400'
+        : 'border-border focus:border-border-strong'
+    }`
 
   return (
     <section id="contact" className="section-pad">
@@ -75,7 +167,7 @@ export default function Contact() {
             transition={{ duration: 0.5, delay: 0.08 }}
           >
             <GlassCard className="p-4 sm:p-5 md:p-7" hover={false}>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4" noValidate>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <label className="block text-sm text-muted">
                     Name
@@ -84,9 +176,13 @@ export default function Contact() {
                       name="name"
                       value={form.name}
                       onChange={handleChange}
-                      className="mt-2 w-full rounded-2xl border border-border bg-bg-elevated px-4 py-3 text-text placeholder:text-muted/50 focus:border-border-strong"
+                      disabled={status === 'loading'}
+                      className={inputClass(Boolean(fieldErrors.name))}
                       placeholder="Your name"
                     />
+                    {fieldErrors.name && (
+                      <span className="mt-1.5 block text-xs text-red-400">{fieldErrors.name}</span>
+                    )}
                   </label>
                   <label className="block text-sm text-muted">
                     Email
@@ -96,9 +192,16 @@ export default function Contact() {
                       name="email"
                       value={form.email}
                       onChange={handleChange}
-                      className="mt-2 w-full rounded-2xl border border-border bg-bg-elevated px-4 py-3 text-text placeholder:text-muted/50 focus:border-border-strong"
+                      onBlur={handleEmailBlur}
+                      disabled={status === 'loading'}
+                      inputMode="email"
+                      autoComplete="email"
+                      className={inputClass(Boolean(fieldErrors.email))}
                       placeholder="you@email.com"
                     />
+                    {fieldErrors.email && (
+                      <span className="mt-1.5 block text-xs text-red-400">{fieldErrors.email}</span>
+                    )}
                   </label>
                 </div>
 
@@ -109,9 +212,13 @@ export default function Contact() {
                     name="subject"
                     value={form.subject}
                     onChange={handleChange}
-                    className="mt-2 w-full rounded-2xl border border-border bg-bg-elevated px-4 py-3 text-text placeholder:text-muted/50 focus:border-border-strong"
+                    disabled={status === 'loading'}
+                    className={inputClass(Boolean(fieldErrors.subject))}
                     placeholder="How can I help?"
                   />
+                  {fieldErrors.subject && (
+                    <span className="mt-1.5 block text-xs text-red-400">{fieldErrors.subject}</span>
+                  )}
                 </label>
 
                 <label className="block text-sm text-muted">
@@ -122,20 +229,27 @@ export default function Contact() {
                     rows={4}
                     value={form.message}
                     onChange={handleChange}
-                    className="mt-2 w-full resize-y rounded-2xl border border-border bg-bg-elevated px-4 py-3 text-text placeholder:text-muted/50 focus:border-border-strong"
+                    disabled={status === 'loading'}
+                    className={inputClass(Boolean(fieldErrors.message))}
                     placeholder="Tell me about your project or role..."
                   />
+                  {fieldErrors.message && (
+                    <span className="mt-1.5 block text-xs text-red-400">{fieldErrors.message}</span>
+                  )}
                 </label>
 
                 <div className="flex flex-wrap items-center gap-4">
-                  <Button type="submit">
+                  <Button type="submit" disabled={status === 'loading'}>
                     <FiSend />
-                    Send Message
+                    {status === 'loading' ? 'Sending...' : 'Send Message'}
                   </Button>
-                  {submitted && (
+                  {status === 'success' && (
                     <span className="text-sm text-accent">
-                      Message logged to console. Thank you!
+                      Message saved. Thank you!
                     </span>
+                  )}
+                  {status === 'error' && error && (
+                    <span className="text-sm text-red-400">{error}</span>
                   )}
                 </div>
               </form>

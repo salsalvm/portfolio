@@ -22,8 +22,11 @@ export default function Button({
   target,
   rel,
   type = 'button',
+  disabled = false,
 }) {
-  const classes = `${base} ${variants[variant]} ${className}`
+  const classes = `${base} ${variants[variant]} ${className} ${
+    disabled ? 'pointer-events-none opacity-60' : ''
+  }`
 
   if (href) {
     return (
@@ -33,8 +36,8 @@ export default function Button({
         target={target}
         rel={rel}
         className={classes}
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.98 }}
+        whileHover={disabled ? undefined : { scale: 1.03 }}
+        whileTap={disabled ? undefined : { scale: 0.98 }}
       >
         {children}
       </motion.a>
@@ -45,9 +48,10 @@ export default function Button({
     <motion.button
       type={type}
       onClick={onClick}
+      disabled={disabled}
       className={classes}
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.98 }}
+      whileHover={disabled ? undefined : { scale: 1.03 }}
+      whileTap={disabled ? undefined : { scale: 0.98 }}
     >
       {children}
     </motion.button>
