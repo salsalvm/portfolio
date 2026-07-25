@@ -5,7 +5,6 @@
     {
       "id": "my-gym-orbit",
       "name": "My Gym Orbit",
-      "image": "/images/project-gym.svg",
       "overview": "A cross-platform fitness management application enabling users to manage memberships, track workouts, and monitor fitness activities in real time.",
       "technologies": ["Flutter", "Dart", "Firebase", "BLoC", "MVVM", "GitHub Actions"],
       "responsibilities": [
@@ -31,7 +30,6 @@
     {
       "id": "anan-jewels",
       "name": "Anan Jewels",
-      "image": "/images/project-jewels.svg",
       "overview": "A B2B jewelry e-commerce platform enabling retailers to seamlessly browse, manage, and purchase diamond jewelry inventory.",
       "technologies": ["Flutter", "Node.js", "Firebase", "REST APIs", "GitHub Actions"],
       "responsibilities": [
@@ -57,7 +55,6 @@
     {
       "id": "real11",
       "name": "Real11 Fantasy Sports",
-      "image": "/images/project-real11.svg",
       "overview": "A high-scale fantasy sports mobile application delivering real-time match data, payments, and engagement features to millions of users.",
       "technologies": [
         "Flutter",
