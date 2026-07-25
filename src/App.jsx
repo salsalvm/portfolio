@@ -3,6 +3,7 @@ import { personal } from './data'
 import LoadingScreen from './components/LoadingScreen'
 import ScrollProgress from './components/ScrollProgress'
 import Navbar from './components/Navbar'
+import MobileTabBar from './components/MobileTabBar'
 import BackToTop from './components/BackToTop'
 import Footer from './components/Footer'
 import Hero from './sections/Hero'
@@ -34,7 +35,7 @@ export default function App() {
       <LoadingScreen ready={ready} />
       <ScrollProgress />
       <Navbar />
-      <main>
+      <main className="pb-24 lg:pb-0">
         <Hero />
         <About />
         <Skills />
@@ -45,6 +46,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <MobileTabBar />
       <BackToTop />
     </>
   )

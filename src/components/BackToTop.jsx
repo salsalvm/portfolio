@@ -19,7 +19,7 @@ export default function BackToTop() {
           type="button"
           aria-label="Back to top"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="glass fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full text-accent shadow-lg"
+          className="glass fixed bottom-[5.75rem] right-4 z-50 flex h-11 w-11 items-center justify-center rounded-full text-accent shadow-lg sm:bottom-6 sm:right-6 sm:h-12 sm:w-12 lg:bottom-6"
           initial={{ opacity: 0, scale: 0.7, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.7, y: 20 }}

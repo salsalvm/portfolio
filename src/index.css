@@ -27,6 +27,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.6;
@@ -37,9 +38,15 @@ body {
     radial-gradient(900px 500px at 90% 0%, rgba(0, 201, 138, 0.08), transparent 50%),
     radial-gradient(800px 600px at 50% 100%, rgba(0, 155, 107, 0.08), transparent 55%),
     var(--color-bg);
-  background-attachment: fixed;
+  background-attachment: scroll;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@media (min-width: 1024px) {
+  body {
+    background-attachment: fixed;
+  }
 }
 
 ::selection {
@@ -62,7 +69,7 @@ body {
 }
 
 .section-pad {
-  @apply relative px-5 sm:px-8 lg:px-12 py-16 md:py-20;
+  @apply relative px-4 sm:px-8 lg:px-12 py-14 sm:py-16 md:py-20;
 }
 
 .container-max {
@@ -135,7 +142,7 @@ textarea:focus {
   height: 100%;
   max-width: none;
   object-fit: cover;
-  object-position: 58% 12%;
+  object-position: 55% 10%;
 }
 
 @keyframes profile-ring-spin {

@@ -46,8 +46,8 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <GlassCard className="h-full p-5 md:p-7" hover={false}>
-              <h3 className="font-display text-2xl font-semibold tracking-tight text-text md:text-3xl">Get in touch</h3>
+            <GlassCard className="h-full p-4 sm:p-5 md:p-7" hover={false}>
+              <h3 className="font-display text-xl font-semibold tracking-tight text-text sm:text-2xl md:text-3xl">Get in touch</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted md:text-base">
                 Open to senior Flutter, mobile engineering, and full stack opportunities.
                 Reach out for collaborations, product builds, or a conversation about your next app.
@@ -74,7 +74,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.08 }}
           >
-            <GlassCard className="p-5 md:p-7" hover={false}>
+            <GlassCard className="p-4 sm:p-5 md:p-7" hover={false}>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <label className="block text-sm text-muted">

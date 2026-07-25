@@ -17,16 +17,16 @@ export default function ProjectCard({ project, index }) {
           <motion.img
             src={project.image}
             alt={project.name}
-            className="h-48 w-full object-cover md:h-56"
+            className="h-40 w-full object-cover sm:h-48 md:h-56"
             whileHover={{ scale: 1.04 }}
             transition={{ duration: 0.5 }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent" />
         </div>
 
-        <div className="space-y-5 p-5 md:p-7">
+        <div className="space-y-4 p-4 sm:space-y-5 sm:p-5 md:p-7">
           <div>
-            <h3 className="font-display text-2xl font-semibold tracking-tight text-text md:text-3xl">{project.name}</h3>
+            <h3 className="font-display text-xl font-semibold tracking-tight text-text sm:text-2xl md:text-3xl">{project.name}</h3>
             <p className="mt-2.5 text-sm leading-relaxed text-muted md:text-base">
               {project.overview}
             </p>

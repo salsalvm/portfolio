@@ -25,7 +25,7 @@ export default function SocialLinks({ social, className = '', size = 18 }) {
             target={key === 'email' ? undefined : '_blank'}
             rel={key === 'email' ? undefined : 'noopener noreferrer'}
             aria-label={label}
-            className="glass flex h-11 w-11 items-center justify-center rounded-full text-muted transition-colors hover:border-border-strong hover:text-accent"
+            className="glass flex h-10 w-10 items-center justify-center rounded-full text-muted transition-colors hover:border-border-strong hover:text-accent sm:h-11 sm:w-11"
             whileHover={{ scale: 1.08, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
