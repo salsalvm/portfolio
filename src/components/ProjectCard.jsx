@@ -15,11 +15,6 @@ const projectMeta = {
     accent: 'from-amber-500/20 via-accent/10 to-transparent',
     tag: 'B2B Commerce',
   },
-  real11: {
-    icon: FiSmartphone,
-    accent: 'from-emerald-400/20 via-accent/10 to-transparent',
-    tag: 'Fantasy Sports',
-  },
 }
 
 export default function ProjectCard({ project, index }) {

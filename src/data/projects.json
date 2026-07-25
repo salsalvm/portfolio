@@ -51,41 +51,6 @@
       "github": "https://github.com/salsalvm",
       "liveDemo": "https://play.google.com/store/apps/details?id=com.india.ananjewels&pcampaignid=web_share",
       "liveDemoLabel": "Play Store"
-    },
-    {
-      "id": "real11",
-      "name": "Real11 Fantasy Sports",
-      "overview": "A high-scale fantasy sports mobile application delivering real-time match data, payments, and engagement features to millions of users.",
-      "technologies": [
-        "Flutter",
-        "Dart",
-        "Socket.IO",
-        "Firebase",
-        "Stripe",
-        "Razorpay",
-        "In-App Purchases"
-      ],
-      "responsibilities": [
-        "Owned feature development and maintenance for a production app with 10M+ downloads and 100K+ DAU.",
-        "Built real-time match data, live notifications, and chat with Socket.IO.",
-        "Integrated Stripe, Razorpay, and platform IAP with secure server-side validation.",
-        "Established Firebase Analytics & Crashlytics observability to drive retention and stability."
-      ],
-      "challenges": [
-        "Sustaining performance and reliability at multi-million download scale.",
-        "Delivering secure, retry-safe payment flows across iOS and Android.",
-        "Turning crash and funnel telemetry into actionable sprint priorities."
-      ],
-      "features": [
-        "Real-time match updates",
-        "Live notifications & chat",
-        "Multi-gateway payments",
-        "28% crash rate reduction",
-        "40% retention improvement"
-      ],
-      "github": "https://github.com/salsalvm",
-      "liveDemo": "https://play.google.com/store/search?q=real11&c=apps",
-      "liveDemoLabel": "Live App"
     }
   ]
 }
