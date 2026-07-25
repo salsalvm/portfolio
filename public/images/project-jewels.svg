@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480" fill="none">
+  <defs>
+    <linearGradient id="g2" x1="0" y1="0" x2="800" y2="480" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#120F0B"/>
+      <stop offset="1" stop-color="#2A2114"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" rx="24" fill="url(#g2)"/>
+  <circle cx="680" cy="380" r="160" fill="#C9A227" opacity="0.1"/>
+  <circle cx="80" cy="80" r="90" fill="#009B6B" opacity="0.1"/>
+  <rect x="70" y="90" width="280" height="300" rx="20" fill="#1A1610" stroke="#3A3224" stroke-width="2"/>
+  <rect x="96" y="120" width="228" height="140" rx="14" fill="#241E15"/>
+  <circle cx="210" cy="190" r="36" fill="#C9A227" opacity="0.35"/>
+  <rect x="96" y="284" width="160" height="14" rx="7" fill="#3A3224"/>
+  <rect x="96" y="314" width="120" height="12" rx="6" fill="#2A241A"/>
+  <text x="400" y="220" fill="#F5F7F6" font-family="SF Pro Display, Inter, system-ui, sans-serif" font-size="42" font-weight="600">Anan Jewels</text>
+  <text x="400" y="262" fill="#A89B84" font-family="SF Pro Text, Inter, system-ui, sans-serif" font-size="20">B2B Commerce · Flutter · Node.js</text>
+</svg>

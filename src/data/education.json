@@ -1,0 +1,33 @@
+{
+  "title": "Education",
+  "subtitle": "Foundations in computer science and Flutter craft",
+  "items": [
+    {
+      "id": "brototype",
+      "degree": "Flutter Development Program",
+      "institution": "Brototype, Kochi",
+      "period": "Jan 2022 – Oct 2022",
+      "details": [
+        "Intensive hands-on Flutter development program focused on building production-ready mobile applications."
+      ]
+    },
+    {
+      "id": "mca",
+      "degree": "Master of Computer Applications (MCA)",
+      "institution": "APJ Abdul Kalam Technological University",
+      "period": "2018 – 2020",
+      "details": [
+        "Relevant coursework: Data Structures, DBMS, Operating Systems"
+      ]
+    },
+    {
+      "id": "bca",
+      "degree": "Bachelor of Computer Applications (BCA)",
+      "institution": "University of Calicut",
+      "period": "2015 – 2018",
+      "details": [
+        "Undergraduate foundation in computer applications and software fundamentals."
+      ]
+    }
+  ]
+}

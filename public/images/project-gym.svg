@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="800" y2="480" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1410"/>
+      <stop offset="1" stop-color="#123528"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="480" rx="24" fill="url(#g1)"/>
+  <circle cx="640" cy="90" r="140" fill="#009B6B" opacity="0.12"/>
+  <circle cx="120" cy="400" r="100" fill="#00C98A" opacity="0.08"/>
+  <rect x="72" y="72" width="220" height="336" rx="28" fill="#0F1C17" stroke="#1E3A2E" stroke-width="2"/>
+  <rect x="92" y="110" width="180" height="18" rx="9" fill="#009B6B" opacity="0.7"/>
+  <rect x="92" y="148" width="140" height="12" rx="6" fill="#2A4036"/>
+  <rect x="92" y="180" width="180" height="80" rx="16" fill="#15241E"/>
+  <rect x="92" y="280" width="84" height="84" rx="16" fill="#1A2E25"/>
+  <rect x="188" y="280" width="84" height="84" rx="16" fill="#1A2E25"/>
+  <text x="360" y="220" fill="#F5F7F6" font-family="SF Pro Display, Inter, system-ui, sans-serif" font-size="42" font-weight="600">My Gym Orbit</text>
+  <text x="360" y="262" fill="#8FA89C" font-family="SF Pro Text, Inter, system-ui, sans-serif" font-size="20">Fitness · Flutter · Firebase</text>
+</svg>

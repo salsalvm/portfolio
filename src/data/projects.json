@@ -1,0 +1,94 @@
+{
+  "title": "Featured Projects",
+  "subtitle": "Selected work spanning mobile, backend, and product delivery",
+  "items": [
+    {
+      "id": "my-gym-orbit",
+      "name": "My Gym Orbit",
+      "image": "/images/project-gym.svg",
+      "overview": "A cross-platform fitness management application enabling users to manage memberships, track workouts, and monitor fitness activities in real time.",
+      "technologies": ["Flutter", "Dart", "Firebase", "BLoC", "MVVM", "GitHub Actions"],
+      "responsibilities": [
+        "Architected the application using MVVM and BLoC state management for scalable, maintainable modules.",
+        "Implemented automated CI/CD pipelines with GitHub Actions and Firebase App Distribution.",
+        "Built comprehensive error handling, API abstraction, and reliable state management patterns."
+      ],
+      "challenges": [
+        "Designing a modular architecture that remained maintainable as features expanded across memberships, workouts, and live activity tracking.",
+        "Reducing deployment friction while keeping release quality high across Android and iOS."
+      ],
+      "features": [
+        "Membership management",
+        "Workout tracking",
+        "Real-time fitness activity monitoring",
+        "MVVM + BLoC architecture",
+        "CI/CD with 40% faster deployments"
+      ],
+      "github": "https://github.com/salsalvm",
+      "liveDemo": "https://apps.apple.com/us/app/my-gym-orbit/id6755679459",
+      "liveDemoLabel": "App Store"
+    },
+    {
+      "id": "anan-jewels",
+      "name": "Anan Jewels",
+      "image": "/images/project-jewels.svg",
+      "overview": "A B2B jewelry e-commerce platform enabling retailers to seamlessly browse, manage, and purchase diamond jewelry inventory.",
+      "technologies": ["Flutter", "Node.js", "Firebase", "REST APIs", "GitHub Actions"],
+      "responsibilities": [
+        "Developed the full mobile experience and integrated backend API services for wholesale purchasing workflows.",
+        "Architected a scalable product catalog with advanced search, filtering, and category-based navigation.",
+        "Automated build and release workflows using GitHub Actions and Firebase App Distribution."
+      ],
+      "challenges": [
+        "Improving product discoverability for wholesale buyers across large diamond jewelry inventories.",
+        "Streamlining secure authentication and order management for B2B purchasing flows."
+      ],
+      "features": [
+        "B2B jewelry catalog",
+        "Advanced search & filtering",
+        "Secure authentication",
+        "Order management",
+        "40% faster release cycles"
+      ],
+      "github": "https://github.com/salsalvm",
+      "liveDemo": "https://play.google.com/store/apps/details?id=com.india.ananjewels&pcampaignid=web_share",
+      "liveDemoLabel": "Play Store"
+    },
+    {
+      "id": "real11",
+      "name": "Real11 Fantasy Sports",
+      "image": "/images/project-real11.svg",
+      "overview": "A high-scale fantasy sports mobile application delivering real-time match data, payments, and engagement features to millions of users.",
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "Socket.IO",
+        "Firebase",
+        "Stripe",
+        "Razorpay",
+        "In-App Purchases"
+      ],
+      "responsibilities": [
+        "Owned feature development and maintenance for a production app with 10M+ downloads and 100K+ DAU.",
+        "Built real-time match data, live notifications, and chat with Socket.IO.",
+        "Integrated Stripe, Razorpay, and platform IAP with secure server-side validation.",
+        "Established Firebase Analytics & Crashlytics observability to drive retention and stability."
+      ],
+      "challenges": [
+        "Sustaining performance and reliability at multi-million download scale.",
+        "Delivering secure, retry-safe payment flows across iOS and Android.",
+        "Turning crash and funnel telemetry into actionable sprint priorities."
+      ],
+      "features": [
+        "Real-time match updates",
+        "Live notifications & chat",
+        "Multi-gateway payments",
+        "28% crash rate reduction",
+        "40% retention improvement"
+      ],
+      "github": "https://github.com/salsalvm",
+      "liveDemo": "https://play.google.com/store/search?q=real11&c=apps",
+      "liveDemoLabel": "Live App"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "title": "Achievements",
+  "subtitle": "Measurable outcomes from production work",
+  "items": [
+    {
+      "id": "downloads",
+      "label": "App Downloads",
+      "value": 10,
+      "suffix": "M+",
+      "description": "Scaled Real11 fantasy sports to multi-million reach"
+    },
+    {
+      "id": "dau",
+      "label": "Daily Active Users",
+      "value": 100,
+      "suffix": "K+",
+      "description": "Supported high-engagement live sports experiences"
+    },
+    {
+      "id": "crash",
+      "label": "Crash Rate Reduced",
+      "value": 28,
+      "suffix": "%",
+      "description": "Through performance optimization & memory management"
+    },
+    {
+      "id": "retention",
+      "label": "Retention Increase",
+      "value": 40,
+      "suffix": "%",
+      "description": "30-day retention lift via observability pipeline"
+    },
+    {
+      "id": "deploy",
+      "label": "Faster Deployments",
+      "value": 40,
+      "suffix": "%",
+      "description": "CI/CD automation with GitHub Actions"
+    },
+    {
+      "id": "admin",
+      "label": "Admin Effort Cut",
+      "value": 30,
+      "suffix": "%+",
+      "description": "Office workflow automation at FoxFennecs"
+    }
+  ]
+}

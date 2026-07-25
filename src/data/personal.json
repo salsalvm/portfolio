@@ -1,0 +1,26 @@
+{
+  "name": "Salsal VM",
+  "firstName": "Salsal",
+  "lastName": "VM",
+  "roles": [
+    "Senior Flutter Developer",
+    "Mobile Engineer",
+    "Full Stack Developer"
+  ],
+  "headline": "Building production-ready mobile experiences that scale — from 10M+ downloads to polished App Store releases.",
+  "location": "India",
+  "email": "salsalvm1997@gmail.com",
+  "phone": "+91 7558959094",
+  "profileImage": "/images/profile.png",
+  "resumeUrl": "/Salsal_VM_Resume.pdf",
+  "social": {
+    "github": "https://github.com/salsalvm",
+    "linkedin": "https://www.linkedin.com/in/salsal-vm-9b9214232/",
+    "email": "mailto:salsalvm1997@gmail.com"
+  },
+  "seo": {
+    "title": "Salsal VM | Senior Flutter Developer & Mobile Engineer",
+    "description": "Senior Flutter Developer and Mobile Engineer with 4+ years of experience building scalable, production-ready mobile apps. Expertise in Flutter, Firebase, Clean Architecture, and Full Stack development.",
+    "keywords": "Senior Flutter Developer, Mobile Engineer, Full Stack Developer, Flutter, Dart, React, Firebase, Salsal VM"
+  }
+}

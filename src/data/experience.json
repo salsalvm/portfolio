@@ -1,0 +1,39 @@
+{
+  "title": "Experience",
+  "subtitle": "Impact across production systems and teams",
+  "items": [
+    {
+      "id": "real11",
+      "role": "Flutter Developer",
+      "company": "Real11 Fantasy Sports LLP",
+      "companyType": "Skill-based entertainment platform",
+      "location": "Noida, Uttar Pradesh",
+      "startDate": "Oct 2022",
+      "endDate": "Mar 2026",
+      "current": false,
+      "responsibilities": [
+        "Developed and maintained the Real11 fantasy sports app, scaled to 10M+ downloads with 100K+ daily active users.",
+        "Reduced crash rate by 28% through performance optimization and memory management.",
+        "Integrated Socket.IO for real-time match data, live notifications, and chat.",
+        "Increased 30-day user retention by 40% and reduced crash rates by establishing an observability pipeline with Firebase Analytics & Crashlytics — instrumented funnel tracking, defined KPIs, and fed crash telemetry directly into sprint priorities.",
+        "Integrated Stripe and Razorpay payment gateways along with iOS & Android in-app purchases, implementing server-side validation, retry-safe failure handling, and secure transaction processing for a seamless checkout experience.",
+        "Mentored 1 junior developer through code reviews, architecture guidance, and best practices, improving code quality and delivery efficiency."
+      ]
+    },
+    {
+      "id": "foxfennecs",
+      "role": "Software Trainee",
+      "company": "FoxFennecs Pvt Ltd",
+      "companyType": "Mid-market businesses and strategic consulting",
+      "location": "Calicut, Kerala",
+      "startDate": "Jan 2020",
+      "endDate": "May 2020",
+      "current": false,
+      "responsibilities": [
+        "Developed an Office Management System with 3+ integrated modules for task scheduling, staff communication, and reporting.",
+        "Streamlined daily office operations, reducing manual administrative effort by 30%+ through workflow automation.",
+        "Improved project visibility and team coordination for 50+ employees with centralized task tracking and reporting."
+      ]
+    }
+  ]
+}

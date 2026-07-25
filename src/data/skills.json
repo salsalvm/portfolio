@@ -1,0 +1,57 @@
+{
+  "title": "Skills",
+  "subtitle": "A focused toolkit for shipping reliable products",
+  "categories": [
+    {
+      "id": "mobile",
+      "name": "Mobile Development",
+      "icon": "mobile",
+      "skills": ["Flutter", "Dart", "Android", "iOS", "Kotlin"]
+    },
+    {
+      "id": "frontend",
+      "name": "Frontend",
+      "icon": "frontend",
+      "skills": ["React", "JavaScript", "HTML", "CSS", "Tailwind CSS"]
+    },
+    {
+      "id": "backend",
+      "name": "Backend",
+      "icon": "backend",
+      "skills": ["Node.js", "Express.js", "REST APIs", "Socket.IO", "FastAPI"]
+    },
+    {
+      "id": "database",
+      "name": "Database",
+      "icon": "database",
+      "skills": ["MongoDB", "Firebase", "Hive"]
+    },
+    {
+      "id": "architecture",
+      "name": "Architecture",
+      "icon": "architecture",
+      "skills": [
+        "Clean Architecture",
+        "MVVM",
+        "BLoC",
+        "Repository Pattern",
+        "SOLID Principles"
+      ]
+    },
+    {
+      "id": "tools",
+      "name": "Tools",
+      "icon": "tools",
+      "skills": [
+        "Git",
+        "GitHub",
+        "GitHub Actions",
+        "Postman",
+        "VS Code",
+        "Android Studio",
+        "Xcode",
+        "Firebase Console"
+      ]
+    }
+  ]
+}

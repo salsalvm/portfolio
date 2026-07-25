@@ -1,0 +1,27 @@
+{
+  "title": "About Me",
+  "subtitle": "Craft, clarity, and production excellence",
+  "summary": [
+    "I am a Senior Flutter Developer and Mobile Engineer with 4+ years of experience designing, developing, and shipping high-performance mobile applications used by millions.",
+    "At Real11 Fantasy Sports, I helped scale a skill-based entertainment platform to 10M+ downloads and 100K+ daily active users — integrating real-time Socket.IO systems, Stripe & Razorpay payments, in-app purchases, and an observability pipeline that cut crash rates by 28% and lifted 30-day retention by 40%.",
+    "I specialize in Clean Architecture, MVVM, and BLoC, with deep hands-on experience across Firebase, REST APIs, CI/CD with GitHub Actions, and publishing to both the Google Play Store and Apple App Store. I am also expanding as a Full Stack Developer with Node.js, Express, MongoDB, and React — bringing end-to-end ownership from mobile UI to backend services."
+  ],
+  "highlights": [
+    {
+      "label": "Years Experience",
+      "value": "4+"
+    },
+    {
+      "label": "App Downloads",
+      "value": "10M+"
+    },
+    {
+      "label": "Daily Active Users",
+      "value": "100K+"
+    },
+    {
+      "label": "Crash Rate Reduced",
+      "value": "28%"
+    }
+  ]
+}
