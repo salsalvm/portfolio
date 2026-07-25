@@ -51,6 +51,29 @@
       "github": "https://github.com/salsalvm",
       "liveDemo": "https://play.google.com/store/apps/details?id=com.india.ananjewels&pcampaignid=web_share",
       "liveDemoLabel": "Play Store"
+    },
+    {
+      "id": "the-super-test",
+      "name": "The Super Test",
+      "overview": "An education and exam-prep learning app for aspirants targeting SSC GD, Railway, and other government competitive exams — built with Clean Architecture and BLoC, following the same scalable patterns used in My Gym Orbit.",
+      "technologies": ["Flutter", "Dart", "Firebase", "BLoC", "Clean Architecture", "GitHub Actions"],
+      "responsibilities": [
+        "Built learning and practice flows for SSC GD, Railway, and related competitive exam content using Clean Architecture with BLoC.",
+        "Structured domain, data, and presentation layers for quizzes, mock tests, and study modules with clear dependency rules."
+      ],
+      "challenges": [
+        "Organizing large exam-oriented question banks and subject modules while keeping the architecture modular and testable.",
+        "Delivering a smooth learning experience across practice tests, progress tracking, and content updates."
+      ],
+      "features": [
+        "SSC GD & Railway exam prep",
+        "Mock tests & practice quizzes",
+        "Clean Architecture + BLoC",
+        "Progress & performance tracking"
+      ],
+      "github": "https://github.com/salsalvm",
+      "liveDemo": "https://github.com/salsalvm",
+      "liveDemoLabel": "GitHub"
     }
   ]
 }

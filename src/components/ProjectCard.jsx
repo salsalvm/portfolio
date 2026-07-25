@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { FaGithub } from 'react-icons/fa6'
-import { FiExternalLink, FiSmartphone, FiShoppingBag, FiActivity } from 'react-icons/fi'
+import { FiExternalLink, FiSmartphone, FiShoppingBag, FiActivity, FiClipboard } from 'react-icons/fi'
 import GlassCard from './GlassCard'
 import Button from './Button'
 
@@ -14,6 +14,11 @@ const projectMeta = {
     icon: FiShoppingBag,
     accent: 'from-amber-500/20 via-accent/10 to-transparent',
     tag: 'B2B Commerce',
+  },
+  'the-super-test': {
+    icon: FiClipboard,
+    accent: 'from-sky-400/20 via-accent/10 to-transparent',
+    tag: 'Learning App',
   },
 }
 
