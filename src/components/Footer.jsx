@@ -19,7 +19,7 @@ export default function Footer() {
         <SocialLinks social={personal.social} />
 
         <p className="text-xs text-muted sm:text-sm">
-          © {year} {personal.name}. Built with React & Tailwind.
+          © {year} {personal.name}.
         </p>
       </div>
     </footer>
