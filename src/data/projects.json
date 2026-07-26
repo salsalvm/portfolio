@@ -70,10 +70,7 @@
         "Mock tests & practice quizzes",
         "Clean Architecture + BLoC",
         "Progress & performance tracking"
-      ],
-      "github": "https://github.com/salsalvm",
-      "liveDemo": "https://github.com/salsalvm",
-      "liveDemoLabel": "GitHub"
+      ]
     }
   ]
 }

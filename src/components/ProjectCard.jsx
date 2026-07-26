@@ -135,16 +135,22 @@ export default function ProjectCard({ project, index }) {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-3 pt-1">
-            <Button href={project.github} target="_blank" rel="noopener noreferrer" variant="secondary">
-              <FaGithub />
-              GitHub
-            </Button>
-            <Button href={project.liveDemo} target="_blank" rel="noopener noreferrer">
-              <FiExternalLink />
-              {project.liveDemoLabel || 'Live Demo'}
-            </Button>
-          </div>
+          {(project.github || project.liveDemo) && (
+            <div className="flex flex-wrap gap-3 pt-1">
+              {project.github && (
+                <Button href={project.github} target="_blank" rel="noopener noreferrer" variant="secondary">
+                  <FaGithub />
+                  GitHub
+                </Button>
+              )}
+              {project.liveDemo && (
+                <Button href={project.liveDemo} target="_blank" rel="noopener noreferrer">
+                  <FiExternalLink />
+                  {project.liveDemoLabel || 'Live Demo'}
+                </Button>
+              )}
+            </div>
+          )}
         </div>
       </GlassCard>
     </motion.article>
