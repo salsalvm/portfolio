@@ -18,12 +18,25 @@ export default function App() {
   const [ready, setReady] = useState(false)
 
   useEffect(() => {
-    document.title = personal.seo.title
+    const { seo, siteUrl } = personal
 
-    const metaDescription = document.querySelector('meta[name="description"]')
-    if (metaDescription) {
-      metaDescription.setAttribute('content', personal.seo.description)
+    document.title = seo.title
+
+    const setMeta = (selector, attribute, value) => {
+      const element = document.querySelector(selector)
+      if (element) element.setAttribute(attribute, value)
     }
+
+    setMeta('meta[name="description"]', 'content', seo.description)
+    setMeta('meta[name="keywords"]', 'content', seo.keywords)
+    setMeta('link[rel="canonical"]', 'href', `${siteUrl}/`)
+    setMeta('meta[property="og:title"]', 'content', seo.title)
+    setMeta('meta[property="og:description"]', 'content', seo.description)
+    setMeta('meta[property="og:url"]', 'content', `${siteUrl}/`)
+    setMeta('meta[property="og:image"]', 'content', seo.ogImage)
+    setMeta('meta[name="twitter:title"]', 'content', seo.title)
+    setMeta('meta[name="twitter:description"]', 'content', seo.description)
+    setMeta('meta[name="twitter:image"]', 'content', seo.ogImage)
 
     const timer = setTimeout(() => setReady(true), 1200)
     return () => clearTimeout(timer)
