@@ -49,8 +49,8 @@
         "40% faster release cycles"
       ],
       "github": "https://github.com/salsalvm",
-      "liveDemo": "https://play.google.com/store/apps/details?id=com.india.ananjewels&pcampaignid=web_share",
-      "liveDemoLabel": "Play Store"
+      "playStore": "https://play.google.com/store/apps/details?id=com.india.ananjewels&pcampaignid=web_share",
+      "appStore": "https://apps.apple.com/us/app/anan-jewels-india/id6753614856"
     },
     {
       "id": "the-super-test",
@@ -70,7 +70,8 @@
         "Mock tests & practice quizzes",
         "Clean Architecture + BLoC",
         "Progress & performance tracking"
-      ]
+      ],
+      "playStore": "https://play.google.com/store/apps/details?id=com.tcbvkv.nxlilh"
     }
   ]
 }

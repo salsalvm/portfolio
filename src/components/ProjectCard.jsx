@@ -135,12 +135,24 @@ export default function ProjectCard({ project, index }) {
             </div>
           </div>
 
-          {(project.github || project.liveDemo) && (
+          {(project.github || project.liveDemo || project.playStore || project.appStore) && (
             <div className="flex flex-wrap gap-3 pt-1">
               {project.github && (
                 <Button href={project.github} target="_blank" rel="noopener noreferrer" variant="secondary">
                   <FaGithub />
                   GitHub
+                </Button>
+              )}
+              {project.playStore && (
+                <Button href={project.playStore} target="_blank" rel="noopener noreferrer">
+                  <FiExternalLink />
+                  Play Store
+                </Button>
+              )}
+              {project.appStore && (
+                <Button href={project.appStore} target="_blank" rel="noopener noreferrer">
+                  <FiExternalLink />
+                  App Store
                 </Button>
               )}
               {project.liveDemo && (
