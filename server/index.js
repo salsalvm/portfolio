@@ -98,6 +98,19 @@ app.get('/api/contacts', async (_req, res) => {
 
 await ensureStore()
 
-app.listen(PORT, () => {
+const server = app.listen(PORT)
+
+server.on('listening', () => {
   console.log(`Contact API running at http://localhost:${PORT}`)
+})
+
+server.on('error', (error) => {
+  if (error.code === 'EADDRINUSE') {
+    console.error(
+      `Port ${PORT} is already in use. Stop the other process (lsof -i :${PORT}) or set PORT to a different value.`,
+    )
+  } else {
+    console.error('Failed to start Contact API:', error.message)
+  }
+  process.exit(1)
 })
