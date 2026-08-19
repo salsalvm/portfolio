@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://salsal-vm.netlify.app/sitemap.xml
+Sitemap: https://salsalvm-salsal.vercel.app/sitemap.xml
