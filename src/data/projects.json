@@ -5,23 +5,22 @@
     {
       "id": "my-gym-orbit",
       "name": "My Gym Orbit",
-      "overview": "A cross-platform fitness management application enabling users to manage memberships, track workouts, and monitor fitness activities in real time.",
-      "technologies": ["Flutter", "Dart", "Firebase", "BLoC", "MVVM", "GitHub Actions"],
+      "overview": "A cross-platform gym management app with attendance, booking, chat, and AI fitness support.",
+      "technologies": ["Flutter", "Dart", "Firebase", "BLoC", "Clean Architecture", "Stripe", "OpenAI", "GitHub Actions"],
       "responsibilities": [
-        "Architected the application using MVVM and BLoC state management for scalable, maintainable modules.",
-        "Implemented automated CI/CD pipelines with GitHub Actions and Firebase App Distribution.",
-        "Built comprehensive error handling, API abstraction, and reliable state management patterns."
+        "Built the app with Clean Architecture, BLoC/Cubit, and get_it for scalable modules.",
+        "Implemented attendance, trainer booking with Stripe, and member chat.",
+        "Set up GitHub Actions CI/CD for Android and iOS releases."
       ],
       "challenges": [
-        "Designing a modular architecture that remained maintainable as features expanded across memberships, workouts, and live activity tracking.",
-        "Reducing deployment friction while keeping release quality high across Android and iOS."
+        "Supporting multiple check-in methods (NFC, QR, geo-fencing, manual) in one attendance flow.",
+        "Keeping Clean Architecture maintainable as chat, payments, and AI features grew."
       ],
       "features": [
-        "Membership management",
-        "Workout tracking",
-        "Real-time fitness activity monitoring",
-        "MVVM + BLoC architecture",
-        "CI/CD with 40% faster deployments"
+        "NFC, QR, geo-fencing & manual attendance",
+        "Weekly/monthly leaderboard",
+        "Trainer booking with Stripe",
+        "Member chat & AI fitness chat"
       ],
       "github": "https://github.com/salsalvm",
       "liveDemo": "https://apps.apple.com/us/app/my-gym-orbit/id6755679459",
@@ -71,6 +70,7 @@
         "Clean Architecture + BLoC",
         "Progress & performance tracking"
       ],
+      "github": "https://github.com/salsalvm",
       "playStore": "https://play.google.com/store/apps/details?id=com.tcbvkv.nxlilh"
     }
   ]
