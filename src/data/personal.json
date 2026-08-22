@@ -20,6 +20,10 @@
   },
   "siteUrl": "https://salsalvm.web.app",
   "gaMeasurementId": "",
+  "supabase": {
+    "url": "https://tjjzcqduitosevrazuxn.supabase.co",
+    "anonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRqanpjcWR1aXRvc2V2cmF6dXhuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk4NTc4NDksImV4cCI6MjA3NTQzMzg0OX0.leiqLis5e2jpuY_5aNMzF8U8Ft4PwyRjDBGSO3uj8oU"
+  },
   "seo": {
     "title": "Salsal VM | Senior Flutter Developer & Mobile Engineer",
     "description": "Senior Flutter Developer and Mobile Engineer with 4+ years of experience building scalable, production-ready mobile apps. Expertise in Flutter, Firebase, Clean Architecture, and Full Stack development.",
