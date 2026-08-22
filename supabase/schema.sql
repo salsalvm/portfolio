@@ -1,5 +1,11 @@
 -- Run this once in Supabase → SQL Editor → New query → Run
--- Free Postgres: stores unique visitors + contact enquiries
+-- Free Postgres: stores unique visitors + enquiries
+--
+-- If you already have a `contacts` table, migrate with:
+--   alter table public.contacts rename to enquiry;
+--   alter index contacts_created_at_idx rename to enquiry_created_at_idx;
+--   drop policy if exists "anon_insert_contacts" on public.enquiry;
+-- then re-run the enquiry policy + grant section below.
 
 create extension if not exists pgcrypto;
 
@@ -14,7 +20,7 @@ create table if not exists public.visitors (
   path text default '/'
 );
 
-create table if not exists public.contacts (
+create table if not exists public.enquiry (
   id uuid primary key default gen_random_uuid(),
   name text not null,
   email text not null,
@@ -23,16 +29,16 @@ create table if not exists public.contacts (
   created_at timestamptz not null default now()
 );
 
-create index if not exists contacts_created_at_idx on public.contacts (created_at desc);
+create index if not exists enquiry_created_at_idx on public.enquiry (created_at desc);
 create index if not exists visitors_last_seen_at_idx on public.visitors (last_seen_at desc);
 
 alter table public.visitors enable row level security;
-alter table public.contacts enable row level security;
+alter table public.enquiry enable row level security;
 
--- Public can submit contacts; cannot read them (view in Supabase Table Editor)
-drop policy if exists "anon_insert_contacts" on public.contacts;
-create policy "anon_insert_contacts"
-  on public.contacts
+-- Public can submit enquiries; cannot read them (view in Supabase Table Editor)
+drop policy if exists "anon_insert_enquiry" on public.enquiry;
+create policy "anon_insert_enquiry"
+  on public.enquiry
   for insert
   to anon
   with check (
@@ -104,5 +110,5 @@ revoke all on function public.track_visitor(text, text, text, text, text) from p
 grant execute on function public.track_visitor(text, text, text, text, text) to anon, authenticated;
 
 revoke all on public.visitors from anon, authenticated;
-revoke all on public.contacts from anon, authenticated;
-grant insert on public.contacts to anon, authenticated;
+revoke all on public.enquiry from anon, authenticated;
+grant insert on public.enquiry to anon, authenticated;

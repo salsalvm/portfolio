@@ -6,21 +6,21 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const dataDir = path.join(__dirname, 'data')
-const contactsFile = path.join(dataDir, 'contacts.json')
+const enquiryFile = path.join(dataDir, 'enquiry.json')
 const PORT = Number(process.env.PORT) || 3001
 
 async function ensureStore() {
   await mkdir(dataDir, { recursive: true })
   try {
-    await readFile(contactsFile, 'utf8')
+    await readFile(enquiryFile, 'utf8')
   } catch {
-    await writeFile(contactsFile, '[]\n', 'utf8')
+    await writeFile(enquiryFile, '[]\n', 'utf8')
   }
 }
 
-async function readContacts() {
+async function readEnquiries() {
   await ensureStore()
-  const raw = await readFile(contactsFile, 'utf8')
+  const raw = await readFile(enquiryFile, 'utf8')
   try {
     const parsed = JSON.parse(raw)
     return Array.isArray(parsed) ? parsed : []
@@ -29,9 +29,9 @@ async function readContacts() {
   }
 }
 
-async function writeContacts(contacts) {
+async function writeEnquiries(enquiries) {
   await ensureStore()
-  await writeFile(contactsFile, `${JSON.stringify(contacts, null, 2)}\n`, 'utf8')
+  await writeFile(enquiryFile, `${JSON.stringify(enquiries, null, 2)}\n`, 'utf8')
 }
 
 function sanitize(value, max = 2000) {
@@ -51,7 +51,7 @@ app.get('/api/health', (_req, res) => {
   res.json({ ok: true })
 })
 
-app.post('/api/contact', async (req, res) => {
+app.post('/api/enquiry', async (req, res) => {
   try {
     const name = sanitize(req.body?.name, 120)
     const email = sanitize(req.body?.email, 180)
@@ -75,23 +75,23 @@ app.post('/api/contact', async (req, res) => {
       createdAt: new Date().toISOString(),
     }
 
-    const contacts = await readContacts()
-    contacts.unshift(entry)
-    await writeContacts(contacts)
+    const enquiries = await readEnquiries()
+    enquiries.unshift(entry)
+    await writeEnquiries(enquiries)
 
     return res.status(201).json({ ok: true, id: entry.id })
   } catch (error) {
-    console.error('Failed to save contact:', error)
+    console.error('Failed to save enquiry:', error)
     return res.status(500).json({ ok: false, error: 'Could not save message. Try again.' })
   }
 })
 
-app.get('/api/contacts', async (_req, res) => {
+app.get('/api/enquiries', async (_req, res) => {
   try {
-    const contacts = await readContacts()
-    return res.json({ ok: true, count: contacts.length, contacts })
+    const enquiries = await readEnquiries()
+    return res.json({ ok: true, count: enquiries.length, enquiries })
   } catch (error) {
-    console.error('Failed to read contacts:', error)
+    console.error('Failed to read enquiries:', error)
     return res.status(500).json({ ok: false, error: 'Could not load messages.' })
   }
 })
@@ -101,7 +101,7 @@ await ensureStore()
 const server = app.listen(PORT)
 
 server.on('listening', () => {
-  console.log(`Contact API running at http://localhost:${PORT}`)
+  console.log(`Enquiry API running at http://localhost:${PORT}`)
 })
 
 server.on('error', (error) => {
@@ -110,7 +110,7 @@ server.on('error', (error) => {
       `Port ${PORT} is already in use. Stop the other process (lsof -i :${PORT}) or set PORT to a different value.`,
     )
   } else {
-    console.error('Failed to start Contact API:', error.message)
+    console.error('Failed to start Enquiry API:', error.message)
   }
   process.exit(1)
 })
