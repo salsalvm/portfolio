@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 import { personal } from './data'
+import { initAnalytics } from './lib/analytics'
+import { trackUniqueVisitor } from './lib/visitors'
 import LoadingScreen from './components/LoadingScreen'
 import ScrollProgress from './components/ScrollProgress'
 import Navbar from './components/Navbar'
@@ -16,6 +18,11 @@ import Contact from './sections/Contact'
 
 export default function App() {
   const [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    initAnalytics(personal.gaMeasurementId || import.meta.env.VITE_GA_MEASUREMENT_ID)
+    trackUniqueVisitor()
+  }, [])
 
   useEffect(() => {
     const { seo, siteUrl } = personal

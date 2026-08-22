@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FiSend } from 'react-icons/fi'
 import { personal } from '../data'
+import { trackContactSubmit } from '../lib/analytics'
+import { submitContact } from '../lib/contacts'
 import SectionHeading from '../components/SectionHeading'
 import GlassCard from '../components/GlassCard'
 import Button from '../components/Button'
@@ -89,23 +91,14 @@ export default function Contact() {
     setStatus('loading')
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: form.name.trim(),
-          email: form.email.trim().toLowerCase(),
-          subject: form.subject.trim(),
-          message: form.message.trim(),
-        }),
+      await submitContact({
+        name: form.name,
+        email: form.email,
+        subject: form.subject,
+        message: form.message,
       })
 
-      const data = await response.json().catch(() => ({}))
-
-      if (!response.ok || !data.ok) {
-        throw new Error(data.error || 'Failed to send message.')
-      }
-
+      trackContactSubmit()
       setStatus('success')
       setForm(initialForm)
       setFieldErrors({})
