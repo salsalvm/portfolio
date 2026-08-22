@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "portfolio0802"
+  },
+  "targets": {
+    "portfolio0802": {
+      "hosting": {
+        "portfolio": [
+          "salsalvm"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
