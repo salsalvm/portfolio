@@ -7,10 +7,10 @@ function isLocalDev() {
 }
 
 /**
- * Saves a contact enquiry to Supabase (production)
+ * Saves an enquiry to Supabase (production)
  * or the local Express JSON API (npm run dev fallback).
  */
-export async function submitContact({ name, email, subject, message }) {
+export async function submitEnquiry({ name, email, subject, message }) {
   const payload = {
     name: name.trim(),
     email: email.trim().toLowerCase(),
@@ -19,7 +19,7 @@ export async function submitContact({ name, email, subject, message }) {
   }
 
   if (isSupabaseConfigured && supabase) {
-    const { error } = await supabase.from('contacts').insert(payload)
+    const { error } = await supabase.from('enquiry').insert(payload)
     if (error) {
       throw new Error(error.message || 'Could not save message.')
     }
@@ -29,11 +29,11 @@ export async function submitContact({ name, email, subject, message }) {
   // Local API only works with `npm run dev` — not on Firebase Hosting
   if (!isLocalDev()) {
     throw new Error(
-      'Contact storage is not configured. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY, then rebuild and deploy.',
+      'Enquiry storage is not configured. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY, then rebuild and deploy.',
     )
   }
 
-  const response = await fetch('/api/contact', {
+  const response = await fetch('/api/enquiry', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload),

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { FiSend } from 'react-icons/fi'
 import { personal } from '../data'
 import { trackContactSubmit } from '../lib/analytics'
-import { submitContact } from '../lib/contacts'
+import { submitEnquiry } from '../lib/enquiry'
 import SectionHeading from '../components/SectionHeading'
 import GlassCard from '../components/GlassCard'
 import Button from '../components/Button'
@@ -94,7 +94,7 @@ export default function Contact() {
     setStatus('loading')
 
     try {
-      await submitContact({
+      await submitEnquiry({
         name: form.name,
         email: form.email,
         subject: form.subject,
