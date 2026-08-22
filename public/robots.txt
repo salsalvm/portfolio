@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://salsalvm.web.app/sitemap.xml
 Sitemap: https://salsal-vm.netlify.app/sitemap.xml
 Sitemap: https://salsal-vm.vercel.app/sitemap.xml
