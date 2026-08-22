@@ -1,5 +1,11 @@
 import { isSupabaseConfigured, supabase } from './supabase'
 
+function isLocalDev() {
+  if (typeof window === 'undefined') return false
+  const host = window.location.hostname
+  return host === 'localhost' || host === '127.0.0.1'
+}
+
 /**
  * Saves a contact enquiry to Supabase (production)
  * or the local Express JSON API (npm run dev fallback).
@@ -18,6 +24,13 @@ export async function submitContact({ name, email, subject, message }) {
       throw new Error(error.message || 'Could not save message.')
     }
     return { ok: true, storage: 'supabase' }
+  }
+
+  // Local API only works with `npm run dev` — not on Firebase Hosting
+  if (!isLocalDev()) {
+    throw new Error(
+      'Contact storage is not configured. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY, then rebuild and deploy.',
+    )
   }
 
   const response = await fetch('/api/contact', {
