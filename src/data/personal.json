@@ -19,6 +19,7 @@
     "email": "mailto:salsalvm1997@gmail.com"
   },
   "siteUrl": "https://salsalvm.web.app",
+  "gaMeasurementId": "",
   "seo": {
     "title": "Salsal VM | Senior Flutter Developer & Mobile Engineer",
     "description": "Senior Flutter Developer and Mobile Engineer with 4+ years of experience building scalable, production-ready mobile apps. Expertise in Flutter, Firebase, Clean Architecture, and Full Stack development.",
