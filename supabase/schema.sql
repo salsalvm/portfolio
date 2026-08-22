@@ -40,7 +40,7 @@ drop policy if exists "anon_insert_enquiry" on public.enquiry;
 create policy "anon_insert_enquiry"
   on public.enquiry
   for insert
-  to anon
+  to anon, authenticated
   with check (
     char_length(name) > 0
     and char_length(email) > 0
