@@ -30,6 +30,7 @@ export default function Contact() {
   const [fieldErrors, setFieldErrors] = useState({})
   const [status, setStatus] = useState('idle')
   const [error, setError] = useState('')
+  const isSubmitting = status === 'loading'
 
   const validateForm = () => {
     const nextErrors = {}
@@ -80,6 +81,8 @@ export default function Contact() {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    if (isSubmitting) return
+
     setError('')
 
     if (!validateForm()) {
@@ -99,9 +102,16 @@ export default function Contact() {
       })
 
       trackContactSubmit()
-      setStatus('success')
-      setForm(initialForm)
+      setForm({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+      })
       setFieldErrors({})
+      setError('')
+      setStatus('success')
+      event.target.reset()
       setTimeout(() => setStatus('idle'), 4000)
     } catch (err) {
       setStatus('error')
@@ -161,6 +171,10 @@ export default function Contact() {
           >
             <GlassCard className="p-4 sm:p-5 md:p-7" hover={false}>
               <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+                <fieldset
+                  disabled={isSubmitting}
+                  className="min-w-0 space-y-4 border-0 p-0 disabled:opacity-70"
+                >
                 <div className="grid gap-4 sm:grid-cols-2">
                   <label className="block text-sm text-muted">
                     Name
@@ -169,7 +183,6 @@ export default function Contact() {
                       name="name"
                       value={form.name}
                       onChange={handleChange}
-                      disabled={status === 'loading'}
                       className={inputClass(Boolean(fieldErrors.name))}
                       placeholder="Your name"
                     />
@@ -186,7 +199,6 @@ export default function Contact() {
                       value={form.email}
                       onChange={handleChange}
                       onBlur={handleEmailBlur}
-                      disabled={status === 'loading'}
                       inputMode="email"
                       autoComplete="email"
                       className={inputClass(Boolean(fieldErrors.email))}
@@ -205,7 +217,6 @@ export default function Contact() {
                     name="subject"
                     value={form.subject}
                     onChange={handleChange}
-                    disabled={status === 'loading'}
                     className={inputClass(Boolean(fieldErrors.subject))}
                     placeholder="How can I help?"
                   />
@@ -222,7 +233,6 @@ export default function Contact() {
                     rows={4}
                     value={form.message}
                     onChange={handleChange}
-                    disabled={status === 'loading'}
                     className={inputClass(Boolean(fieldErrors.message))}
                     placeholder="Tell me about your project or role..."
                   />
@@ -232,9 +242,9 @@ export default function Contact() {
                 </label>
 
                 <div className="flex flex-wrap items-center gap-4">
-                  <Button type="submit" disabled={status === 'loading'}>
+                  <Button type="submit" disabled={isSubmitting}>
                     <FiSend />
-                    {status === 'loading' ? 'Sending...' : 'Send Message'}
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                   {status === 'success' && (
                     <span className="text-sm text-accent">
@@ -245,6 +255,7 @@ export default function Contact() {
                     <span className="text-sm text-red-400">{error}</span>
                   )}
                 </div>
+                </fieldset>
               </form>
             </GlassCard>
           </motion.div>
