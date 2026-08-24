@@ -4,9 +4,10 @@ import { HiMenuAlt3, HiX } from 'react-icons/hi'
 import { navigation, personal } from '../data'
 import { useActiveSection } from '../hooks/useActiveSection'
 
+const sectionIds = navigation.links.map((link) => link.id)
+
 export default function Navbar() {
   const [open, setOpen] = useState(false)
-  const sectionIds = navigation.links.map((link) => link.id)
   const activeId = useActiveSection(sectionIds)
 
   useEffect(() => {
