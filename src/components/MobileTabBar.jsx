@@ -5,14 +5,37 @@ const tabs = [
   { id: 'home', label: 'Home', href: '#home', icon: FiHome },
   { id: 'about', label: 'About', href: '#about', icon: FiUser },
   { id: 'skills', label: 'Skills', href: '#skills', icon: FiCode },
-  { id: 'projects', label: 'Work', href: '#projects', icon: FiFolder },
+  {
+    id: 'projects',
+    label: 'Work',
+    href: '#experience',
+    icon: FiFolder,
+    // Experience + projects (+ education) all count as the Work tab
+    matchIds: ['experience', 'projects', 'education'],
+  },
   { id: 'contact', label: 'Contact', href: '#contact', icon: FiMail },
 ]
 
-const tabIds = tabs.map((tab) => tab.id)
+const observedIds = [
+  'home',
+  'about',
+  'skills',
+  'experience',
+  'projects',
+  'education',
+  'contact',
+]
+
+function resolveTabId(sectionId) {
+  const match = tabs.find(
+    (tab) => tab.id === sectionId || tab.matchIds?.includes(sectionId),
+  )
+  return match?.id ?? sectionId
+}
 
 export default function MobileTabBar() {
-  const activeId = useActiveSection(tabIds)
+  const activeSection = useActiveSection(observedIds)
+  const activeId = resolveTabId(activeSection)
 
   const handleNav = (href) => {
     const id = href.replace('#', '')
@@ -34,6 +57,7 @@ export default function MobileTabBar() {
               key={tab.id}
               type="button"
               onClick={() => handleNav(tab.href)}
+              aria-current={active ? 'true' : undefined}
               className={`flex min-w-0 flex-1 flex-col items-center gap-1 rounded-xl px-1 py-2 transition-colors ${
                 active ? 'bg-accent-dim text-accent' : 'text-muted'
               }`}
