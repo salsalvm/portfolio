@@ -19,6 +19,7 @@
     "email": "mailto:salsalvm1997@gmail.com"
   },
   "siteUrl": "https://salsalvm.web.app",
+  "alternateSiteUrl": "https://salsal-vm.vercel.app",
   "gaMeasurementId": "",
   "supabase": {
     "url": "https://tjjzcqduitosevrazuxn.supabase.co",
