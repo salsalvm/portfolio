@@ -18,7 +18,7 @@ export default function LoadingScreen({ ready }) {
             >
               <span className="font-display text-3xl text-accent">SV</span>
             </motion.div>
-            <div className="h-[2px] w-40 overflow-hidden rounded-full bg-white/10">
+            <div className="h-[2px] w-40 overflow-hidden rounded-full bg-border">
               <motion.div
                 className="h-full bg-accent"
                 initial={{ x: '-100%' }}

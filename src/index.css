@@ -16,6 +16,21 @@
   --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
 }
 
+/* Light theme — cool page wash, white cards, frosted nav (dark tokens above stay as-is) */
+html.light {
+  --color-bg: #dce8e4;
+  --color-bg-elevated: #eef4f1;
+  --color-surface: #ffffff;
+  --color-surface-strong: rgba(255, 255, 255, 0.88);
+  --color-border: rgba(20, 50, 40, 0.1);
+  --color-border-strong: rgba(0, 140, 100, 0.45);
+  --color-text: #10231c;
+  --color-muted: #5b7168;
+  --color-accent: #0a8f63;
+  --color-accent-soft: #0bab76;
+  --color-accent-dim: rgba(10, 143, 99, 0.12);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -41,6 +56,20 @@ body {
   background-attachment: scroll;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+html.light body {
+  background:
+    radial-gradient(1100px 560px at 6% -10%, rgba(64, 180, 170, 0.22), transparent 58%),
+    radial-gradient(900px 500px at 96% 2%, rgba(10, 143, 99, 0.12), transparent 52%),
+    radial-gradient(780px 520px at 48% 108%, rgba(90, 160, 190, 0.12), transparent 55%),
+    linear-gradient(180deg, #e4efeb 0%, #d8e6e1 100%);
+}
+
+html.light ::selection {
+  background: rgba(10, 143, 99, 0.22);
+  color: #10231c;
 }
 
 @media (min-width: 1024px) {
@@ -97,12 +126,43 @@ body {
   color: transparent;
 }
 
+html.light .text-gradient {
+  background: linear-gradient(135deg, #10231c 0%, #0a8f63 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .grid-noise {
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+}
+
+html.light .grid-noise {
+  background-image:
+    linear-gradient(rgba(16, 35, 28, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 35, 28, 0.045) 1px, transparent 1px);
+}
+
+/* Cards: solid white panels with soft depth */
+html.light .glass {
+  background: #ffffff;
+  border-color: rgba(16, 35, 28, 0.08);
+  box-shadow:
+    0 1px 2px rgba(16, 35, 28, 0.04),
+    0 12px 32px rgba(16, 35, 28, 0.07);
+}
+
+/* Navbar / tab bar: frosted panel, slightly cooler than cards */
+html.light .glass-strong {
+  background: rgba(247, 251, 249, 0.9);
+  border-color: rgba(10, 143, 99, 0.16);
+  box-shadow:
+    0 1px 2px rgba(16, 35, 28, 0.05),
+    0 10px 28px rgba(16, 35, 28, 0.08);
 }
 
 input,

@@ -1,4 +1,4 @@
-import { FiHome, FiUser, FiCode, FiFolder, FiMail } from 'react-icons/fi'
+import { FiHome, FiUser, FiCode, FiFolder, FiBookOpen, FiMail } from 'react-icons/fi'
 import { useActiveSection } from '../hooks/useActiveSection'
 
 const tabs = [
@@ -10,9 +10,10 @@ const tabs = [
     label: 'Work',
     href: '#experience',
     icon: FiFolder,
-    // Experience + projects (+ education) all count as the Work tab
-    matchIds: ['experience', 'projects', 'education'],
+    // Experience + projects count as the Work tab
+    matchIds: ['experience', 'projects'],
   },
+  { id: 'education', label: 'Education', href: '#education', icon: FiBookOpen },
   { id: 'contact', label: 'Contact', href: '#contact', icon: FiMail },
 ]
 
@@ -40,7 +41,7 @@ export default function MobileTabBar() {
   const handleNav = (href) => {
     const id = href.replace('#', '')
     const el = document.getElementById(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    if (el) el.scrollIntoView({ behavior: 'instant' })
   }
 
   return (
