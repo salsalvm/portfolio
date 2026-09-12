@@ -25,7 +25,7 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    const { seo, siteUrl } = personal
+    const { seo, siteUrl, alternateSiteUrl } = personal
 
     document.title = seo.title
 
@@ -37,6 +37,9 @@ export default function App() {
     setMeta('meta[name="description"]', 'content', seo.description)
     setMeta('meta[name="keywords"]', 'content', seo.keywords)
     setMeta('link[rel="canonical"]', 'href', `${siteUrl}/`)
+    if (alternateSiteUrl) {
+      setMeta('link[rel="alternate"]', 'href', `${alternateSiteUrl}/`)
+    }
     setMeta('meta[property="og:title"]', 'content', seo.title)
     setMeta('meta[property="og:description"]', 'content', seo.description)
     setMeta('meta[property="og:url"]', 'content', `${siteUrl}/`)
