@@ -116,7 +116,7 @@ export default function Navbar() {
                       className={`w-full rounded-xl px-4 py-3.5 text-left text-sm ${
                         activeId === link.id
                           ? 'bg-accent-dim text-accent'
-                          : 'text-muted active:bg-white/5'
+                          : 'text-muted active:bg-accent-dim/60'
                       }`}
                     >
                       {link.label}

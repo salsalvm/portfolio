@@ -7,7 +7,7 @@ function isLocalDev() {
 }
 
 /**
- * Saves an enquiry to Supabase (production)
+ * Saves an enquiry to Supabase via Edge Function (insert + email)
  * or the local Express JSON API (npm run dev fallback).
  */
 export async function submitEnquiry({ name, email, subject, message }) {
@@ -19,11 +19,44 @@ export async function submitEnquiry({ name, email, subject, message }) {
   }
 
   if (isSupabaseConfigured && supabase) {
-    const { error } = await supabase.from('enquiry').insert(payload)
+    const { data, error } = await supabase.functions.invoke('submit-enquiry', {
+      body: payload,
+    })
+
     if (error) {
-      throw new Error(error.message || 'Could not save message.')
+      const messageText = error.message || ''
+      const missingFunction =
+        messageText.includes('Function not found') ||
+        messageText.includes('404') ||
+        error.context?.status === 404
+
+      if (missingFunction) {
+        const { error: insertError } = await supabase.from('enquiry').insert(payload)
+        if (insertError) {
+          throw new Error(insertError.message || 'Could not save message.')
+        }
+        return { ok: true, storage: 'supabase', emailed: false }
+      }
+
+      let detail = messageText
+      try {
+        const body = typeof error.context?.json === 'function' ? await error.context.json() : data
+        if (body?.error) detail = body.error
+      } catch {
+        // keep messageText
+      }
+      throw new Error(detail || 'Could not save message.')
     }
-    return { ok: true, storage: 'supabase' }
+
+    if (data && data.ok === false) {
+      throw new Error(data.error || 'Could not save message.')
+    }
+
+    return {
+      ok: true,
+      storage: 'supabase',
+      emailed: Boolean(data?.emailed),
+    }
   }
 
   // Local API only works with `npm run dev` — not on Firebase Hosting
@@ -44,5 +77,5 @@ export async function submitEnquiry({ name, email, subject, message }) {
     throw new Error(data.error || 'Failed to send message.')
   }
 
-  return { ok: true, storage: 'local', id: data.id }
+  return { ok: true, storage: 'local', id: data.id, emailed: Boolean(data.emailed) }
 }

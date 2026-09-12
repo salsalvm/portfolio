@@ -28,3 +28,7 @@ npm run preview
 ## Content
 
 All copy lives in `src/data/` as JSON. Replace `/public/images/profile.svg` with your photo when ready. Resume is at `/public/Salsal_VM_Resume.pdf`.
+
+## Enquiry emails
+
+Contact form submissions go to Supabase and can email the submitter plus your inbox. Setup: `supabase/ENQUIRY_EMAIL.md`.

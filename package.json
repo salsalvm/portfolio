@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently -k -n web,api -c cyan,green \"vite --host\" \"node server/index.js\"",
+    "dev": "(lsof -ti tcp:3001 | xargs kill -9) 2>/dev/null; (lsof -ti tcp:5173 | xargs kill -9) 2>/dev/null; concurrently -k -n web,api -c cyan,green \"vite --host\" \"node server/index.js\"",
     "dev:web": "vite --host",
     "dev:api": "node server/index.js",
     "build": "vite build",

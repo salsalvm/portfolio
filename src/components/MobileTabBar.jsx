@@ -41,7 +41,7 @@ export default function MobileTabBar() {
   const handleNav = (href) => {
     const id = href.replace('#', '')
     const el = document.getElementById(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    if (el) el.scrollIntoView({ behavior: 'instant' })
   }
 
   return (
