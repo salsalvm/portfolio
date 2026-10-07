@@ -1,10 +1,15 @@
 import { motion } from 'framer-motion'
 import { FaGithub } from 'react-icons/fa6'
-import { FiExternalLink, FiSmartphone, FiShoppingBag, FiActivity, FiClipboard } from 'react-icons/fi'
+import { FiExternalLink, FiSmartphone, FiShoppingBag, FiActivity, FiClipboard, FiLayers } from 'react-icons/fi'
 import GlassCard from './GlassCard'
 import Button from './Button'
 
 const projectMeta = {
+  'office-gossip': {
+    icon: FiLayers,
+    accent: 'from-emerald-400/20 via-accent/10 to-transparent',
+    tag: 'Full-Stack · Web · Android · iOS',
+  },
   'my-gym-orbit': {
     icon: FiActivity,
     accent: 'from-accent/25 via-accent/10 to-transparent',
@@ -30,6 +35,7 @@ export default function ProjectCard({ project, index }) {
   }
   const Icon = meta.icon
   const hasImage = Boolean(project.image)
+  const isComingSoon = (key) => !project[key] && project.comingSoon?.includes(key)
 
   return (
     <motion.article
@@ -135,14 +141,8 @@ export default function ProjectCard({ project, index }) {
             </div>
           </div>
 
-          {(project.github || project.liveDemo || project.playStore || project.appStore) && (
+          {(project.github || project.liveDemo || project.playStore || project.appStore || project.comingSoon?.length) && (
             <div className="flex flex-wrap gap-3 pt-1">
-              {project.github && (
-                <Button href={project.github} target="_blank" rel="noopener noreferrer" variant="secondary">
-                  <FaGithub />
-                  GitHub
-                </Button>
-              )}
               {project.playStore && (
                 <Button href={project.playStore} target="_blank" rel="noopener noreferrer">
                   <FiExternalLink />
@@ -159,6 +159,24 @@ export default function ProjectCard({ project, index }) {
                 <Button href={project.liveDemo} target="_blank" rel="noopener noreferrer">
                   <FiExternalLink />
                   {project.liveDemoLabel || 'Live Demo'}
+                </Button>
+              )}
+              {isComingSoon('playStore') && (
+                <Button variant="ghost" disabled>
+                  <FiSmartphone />
+                  Android · Coming Soon
+                </Button>
+              )}
+              {isComingSoon('appStore') && (
+                <Button variant="ghost" disabled>
+                  <FiSmartphone />
+                  iOS · Coming Soon
+                </Button>
+              )}
+              {project.github && (
+                <Button href={project.github} target="_blank" rel="noopener noreferrer" variant="secondary">
+                  <FaGithub />
+                  GitHub
                 </Button>
               )}
             </div>

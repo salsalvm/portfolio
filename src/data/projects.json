@@ -3,6 +3,39 @@
   "subtitle": "Selected work spanning mobile, backend, and product delivery",
   "items": [
     {
+      "id": "office-gossip",
+      "name": "Office Gossip",
+      "overview": "An anonymous workplace community platform for employees of verified companies — anonymous posting, trending feeds, member directories, and push notifications. Designed and shipped end to end as a solo developer, spanning cross-platform Flutter apps, member and admin web portals, and a secure REST API with automated cloud deployments.",
+      "technologies": ["Flutter", "Dart", "BLoC", "Clean Architecture", "React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Supabase", "Firebase", "FCM", "GitHub Actions"],
+      "responsibilities": [
+        "Designed and built the entire product solo: product scope, database design, REST API, Flutter app, both React web apps, push notifications, email delivery, and deployment.",
+        "Built the Flutter app with feature-based Clean Architecture, BLoC/Cubit, GetIt, GoRouter, and fpdart Either for typed error handling.",
+        "Developed ~50 REST endpoints in Node.js 22, Express 5, and TypeScript with Zod validation, deployed as a Firebase Cloud Function behind Hosting rewrites.",
+        "Modelled 13 PostgreSQL tables on Supabase covering companies, memberships, posts, comments, reports, devices, and announcements.",
+        "Set up a GitHub Actions pipeline that detects changes and deploys only the affected web app, admin dashboard, or backend to Firebase on merge."
+      ],
+      "challenges": [
+        "Keeping posts truly anonymous to members while still recording authors internally so moderators can act.",
+        "Verifying real employment with admin-approved company memberships, since a company email domain alone isn't proof.",
+        "Locking down data access so only the backend touches the database, checking login, role, and active membership on every request.",
+        "Keeping users signed in securely with Dio interceptors that attach and automatically refresh tokens."
+      ],
+      "features": [
+        "Anonymous posting",
+        "Company onboarding & approval",
+        "Trending feed with time filters",
+        "Member directory & follows",
+        "Push & in-app notifications",
+        "Admin moderation & announcements",
+        "CSV bulk company import",
+        "Staging & production builds"
+      ],
+      "github": "https://github.com/salsalvm/Office-Gossip",
+      "liveDemo": "https://office-gossip.web.app",
+      "liveDemoLabel": "Web App",
+      "comingSoon": ["playStore", "appStore"]
+    },
+    {
       "id": "my-gym-orbit",
       "name": "My Gym Orbit",
       "overview": "A cross-platform gym management app with attendance, booking, chat, and AI fitness support.",
