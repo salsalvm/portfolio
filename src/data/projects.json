@@ -36,6 +36,64 @@
       "comingSoon": ["playStore", "appStore"]
     },
     {
+      "id": "tabletalk-bill",
+      "name": "TableTalk Bill",
+      "overview": "A B2B SaaS platform for GST billing and job costing, built for electrical, plumbing, construction and building-service contractors. Each contractor business gets its own private account for site quotations, GST invoices, payments, labour, a ledger book and reports, while the platform owner onboards businesses and manages the shared product catalogue from a separate admin console.",
+      "technologies": ["React", "TypeScript", "Vite", "Tailwind CSS", "TanStack Query", "Zustand", "Node.js", "Express", "PostgreSQL", "Supabase", "Cloudflare Workers", "Firebase Hosting", "PWA"],
+      "responsibilities": [
+        "Designed and built the entire product solo: database design, REST API, the contractor web app, the admin console and deployment.",
+        "Kept every contractor business's data — customers, quotations, bills, prices, payments and labour — private to its own account.",
+        "Built a server-side billing engine for Indian GST (CGST/SGST and IGST), discounts, offer prices, round-off and financial-year invoice numbering.",
+        "Built a mobile-first site-quote flow for contractors on site, with quotations saved offline and uploaded automatically when the connection returns.",
+        "Deployed the API on Cloudflare Workers with a Supabase PostgreSQL database, and wrote database migration, backup and restore scripts."
+      ],
+      "challenges": [
+        "Sharing one product catalogue across all businesses while keeping each business's own prices private.",
+        "Letting the platform owner manage businesses — onboarding, deactivation, device sign-out and maintenance mode — without exposing any business's revenue or bank details.",
+        "Generating print-ready PDF invoices, quotations and payment receipts that can be shared to customers on WhatsApp directly from the phone.",
+        "Importing large product lists from CSV and Google Sheets with validation before import and inline error fixing."
+      ],
+      "features": [
+        "B2B SaaS for contractors",
+        "Admin console for businesses",
+        "Offline site quotations",
+        "GST invoices & quotations",
+        "WhatsApp PDF sharing",
+        "Payments, labour & ledger book",
+        "Shared product catalogue",
+        "CSV & Google Sheets import",
+        "Reports & profit estimates",
+        "Installable web app (PWA)"
+      ],
+      "github": "https://github.com/salsalvm",
+      "liveDemo": "https://tabletalkbill.web.app",
+      "liveDemoLabel": "Web App"
+    },
+    {
+      "id": "the-super-test",
+      "name": "The Super Test",
+      "overview": "An education and exam-prep learning app for aspirants targeting SSC GD, Railway, and other government competitive exams — built with Clean Architecture and BLoC, following the same scalable patterns used in My Gym Orbit.",
+      "technologies": ["Flutter", "Dart", "Firebase", "BLoC", "Clean Architecture", "GitHub Actions"],
+      "responsibilities": [
+        "Built learning and practice flows for SSC GD, Railway, and related competitive exam content using Clean Architecture with BLoC.",
+        "Structured domain, data, and presentation layers for quizzes, mock tests, and study modules with clear dependency rules."
+      ],
+      "challenges": [
+        "Organizing large exam-oriented question banks and subject modules while keeping the architecture modular and testable.",
+        "Delivering a smooth learning experience across practice tests, progress tracking, and content updates."
+      ],
+      "features": [
+        "SSC GD & Railway exam prep",
+        "Mock tests & practice quizzes",
+        "Clean Architecture + BLoC",
+        "Progress & performance tracking"
+      ],
+      "github": "https://github.com/salsalvm",
+      "playStore": "https://play.google.com/store/apps/details?id=com.tcbvkv.nxlilh",
+      "liveDemo": "https://thesupertest.com",
+      "liveDemoLabel": "Website"
+    },
+    {
       "id": "my-gym-orbit",
       "name": "My Gym Orbit",
       "overview": "A cross-platform gym management app with attendance, booking, chat, and AI fitness support.",
@@ -58,53 +116,6 @@
       "github": "https://github.com/salsalvm",
       "liveDemo": "https://apps.apple.com/us/app/my-gym-orbit/id6755679459",
       "liveDemoLabel": "App Store"
-    },
-    {
-      "id": "anan-jewels",
-      "name": "Anan Jewels",
-      "overview": "A B2B jewelry e-commerce platform enabling retailers to seamlessly browse, manage, and purchase diamond jewelry inventory.",
-      "technologies": ["Flutter", "Node.js", "Firebase", "REST APIs", "GitHub Actions"],
-      "responsibilities": [
-        "Developed the full mobile experience and integrated backend API services for wholesale purchasing workflows.",
-        "Architected a scalable product catalog with advanced search, filtering, and category-based navigation.",
-        "Automated build and release workflows using GitHub Actions and Firebase App Distribution."
-      ],
-      "challenges": [
-        "Improving product discoverability for wholesale buyers across large diamond jewelry inventories.",
-        "Streamlining secure authentication and order management for B2B purchasing flows."
-      ],
-      "features": [
-        "B2B jewelry catalog",
-        "Advanced search & filtering",
-        "Secure authentication",
-        "Order management",
-        "40% faster release cycles"
-      ],
-      "github": "https://github.com/salsalvm",
-      "playStore": "https://play.google.com/store/apps/details?id=com.india.ananjewels&pcampaignid=web_share",
-      "appStore": "https://apps.apple.com/us/app/anan-jewels-india/id6753614856"
-    },
-    {
-      "id": "the-super-test",
-      "name": "The Super Test",
-      "overview": "An education and exam-prep learning app for aspirants targeting SSC GD, Railway, and other government competitive exams — built with Clean Architecture and BLoC, following the same scalable patterns used in My Gym Orbit.",
-      "technologies": ["Flutter", "Dart", "Firebase", "BLoC", "Clean Architecture", "GitHub Actions"],
-      "responsibilities": [
-        "Built learning and practice flows for SSC GD, Railway, and related competitive exam content using Clean Architecture with BLoC.",
-        "Structured domain, data, and presentation layers for quizzes, mock tests, and study modules with clear dependency rules."
-      ],
-      "challenges": [
-        "Organizing large exam-oriented question banks and subject modules while keeping the architecture modular and testable.",
-        "Delivering a smooth learning experience across practice tests, progress tracking, and content updates."
-      ],
-      "features": [
-        "SSC GD & Railway exam prep",
-        "Mock tests & practice quizzes",
-        "Clean Architecture + BLoC",
-        "Progress & performance tracking"
-      ],
-      "github": "https://github.com/salsalvm",
-      "playStore": "https://play.google.com/store/apps/details?id=com.tcbvkv.nxlilh"
     }
   ]
 }

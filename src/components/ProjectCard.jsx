@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { FaGithub } from 'react-icons/fa6'
-import { FiExternalLink, FiSmartphone, FiShoppingBag, FiActivity, FiClipboard, FiLayers } from 'react-icons/fi'
+import { FiExternalLink, FiSmartphone, FiActivity, FiClipboard, FiLayers, FiFileText } from 'react-icons/fi'
 import GlassCard from './GlassCard'
 import Button from './Button'
 
@@ -10,15 +10,15 @@ const projectMeta = {
     accent: 'from-emerald-400/20 via-accent/10 to-transparent',
     tag: 'Full-Stack · Web · Android · iOS',
   },
+  'tabletalk-bill': {
+    icon: FiFileText,
+    accent: 'from-orange-400/20 via-accent/10 to-transparent',
+    tag: 'B2B SaaS · Billing · Web',
+  },
   'my-gym-orbit': {
     icon: FiActivity,
     accent: 'from-accent/25 via-accent/10 to-transparent',
     tag: 'Fitness App',
-  },
-  'anan-jewels': {
-    icon: FiShoppingBag,
-    accent: 'from-amber-500/20 via-accent/10 to-transparent',
-    tag: 'B2B Commerce',
   },
   'the-super-test': {
     icon: FiClipboard,
